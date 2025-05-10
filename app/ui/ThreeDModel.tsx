@@ -28,7 +28,7 @@ const Model: React.FC<{ url: string }> = ({ url }) => {
       requestAnimationFrame(animate);
     };
     animate();
-  }, [mixer]);
+  }, [actions, mixer]);
 
   useEffect(() => {
     if (!actions) {

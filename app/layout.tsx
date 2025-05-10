@@ -3,8 +3,6 @@ import "./globals.css";
 import { lustria } from "@/app/ui/fonts";
 import Footer from "@/app/ui/Footer";
 import Header from "@/app/ui/Header";
-import { cookies } from "next/headers";
-import PasswordForm from "@/app/ui/PasswordForm";
 
 export const metadata: Metadata = {
   title: "Demo App",
@@ -16,7 +14,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = cookies();
   // const auth = cookieStore.get("auth");
   return (
     <html lang="en">
