@@ -1,12 +1,6 @@
 import { NextResponse } from "next/server";
 import { serialize } from "cookie";
-
-if (!process.env.PASSWORD) {
-  throw new Error("Environment variable PASSWORD is not set.");
-}
-export async function POST(req: Request) {
-  const { password } = await req.json();
-  if (password === process.env.PASSWORD) {
+export async function POST() {
     const cookie = serialize("auth", "true", { path: "/", httpOnly: true });
     return NextResponse.json(
       { message: "Access granted" },
@@ -16,7 +10,4 @@ export async function POST(req: Request) {
         },
       }
     );
-  } else {
-    return NextResponse.json({ message: "Invalid password" }, { status: 401 });
-  }
 }
